@@ -1,11 +1,30 @@
 {% extends 'bulletinboard/default.html' %}
 
 {% block content %}
+<style>
+.button {
+	font-weight: bold;
+	font-size: 18px;
+	font-family: 'Arial';
+	background-color: #FF0033;
+	color: white;
+	cursor: pointer;
+	overflow: hidden;
+	border-radius: 5px;
+	box-shadow: 0 0 20px 0 rgba(0,0,0,.3);
+	padding: 10px 10px;
+}
+
+.button:hover {
+	color: #fff;
+	padding: 12px 12px;
+}
+</style>
 <h1>{{title}}</h1>
 <hr>
 <form action="" method="post">
     {% csrf_token %}
     <p>Удаляем "{{ object.title }}"?</p>
-    <input type="submit" value="Удалить" />
+    <input type="submit" value="Удалить" class="button"/>
 </form>
 {% endblock content %}

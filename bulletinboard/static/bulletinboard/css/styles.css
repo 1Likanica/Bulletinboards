@@ -1,5 +1,5 @@
 html, body {
-	font-family: 'Arial';
+	font-family: 'Times New Roman';
 	margin: 0;
 	padding: 0;
 	height: 100%;
@@ -16,7 +16,7 @@ a:hover {
 	text-decoration: underline;
 }
 
-img {max-width: 600px; height: auto;}
+img {max-width: 900px; height: auto;}
 
 img.img-article-left {
 	max-width: 300px;
@@ -34,11 +34,23 @@ p.link-read-post {
 	text-align: right;
 }
 p.link-read-post a {
-	padding: 10px;
-	min-width: 100px;
-	background: #333671;
-	color: #fff;
 	text-decoration: none;
+}
+
+.btn {
+    cursor: pointer;
+    min-width: 100px;
+    border: 0;
+    border-radius: 5px;
+    background: #4676D7;
+    color: #fff;
+    font-size: 20px;
+    padding: 10px;
+}
+.btn:hover {
+    color: #fff;
+    background-color: rgba(110, 0, 225);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 div.article-panel {
@@ -48,6 +60,7 @@ div.article-panel {
     overflow: hidden;
     color: #555;
 }
+
 div.article-panel p.first {
     margin: 0;
     float: left;
@@ -76,7 +89,7 @@ ul.list-articles li {
 .clear {clear: both;}
 
 .header {
-	background: #3F4137;
+	background: #F4A460;
 	height: 60px;
 }
 
@@ -91,8 +104,8 @@ ul.mainmenu {
 	margin: 0;
 	padding: 0;
 	height: 60px;
-	color: #fdc073;
-	font-size: 20px;
+	color: black;
+	font-size: 23px;
 	overflow: hidden;
 }
 ul.mainmenu li {
@@ -103,11 +116,14 @@ ul.mainmenu li.logo {margin: 0;}
 ul.mainmenu li.last {float: right;}
 
 ul.mainmenu li a {
-	color: #fdc073;
+	color: #800080;
 	text-decoration: none;
 }
 ul.mainmenu li a:hover {
-	color: #FDA83D;
+	color: #8B008B; /* Меняем цвет текста */
+    -webkit-text-shadow: 1px 1px 1px #000;
+    -moz-text-shadow: 1px 1px 1px #000;
+     text-shadow: 1px 1px 1px #000;
 }
 
 .panelitems {
@@ -363,6 +379,7 @@ ul.lang-list li a:hover {color: #fdc073;}
 	font-family: Verdana, Geneva, Arial, Helvetica;
 	text-align: left;
 	overflow: hidden;
+	margin-top:50px
 }
 #footer a {
 	text-decoration: underline;
@@ -389,4 +406,10 @@ ul.lang-list li a:hover {color: #fdc073;}
 .form-button {
     min-width: 200px;
     font-size: 16px;
+}
+
+.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
 }

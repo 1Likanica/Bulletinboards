@@ -2,8 +2,8 @@
 
 {% block content %}
 <div class="article-panel">
-	<p class="first">Категория: {{post.category}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Автор: {{post.author}}</p>
-	<p class="last">Дата: {{post.creation_time|date:"d-m-Y H:i:s"}}</p>
+	<p class="first">Категория: <b>{{post.category}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Автор: <b>{{post.author}}</b></p>
+	<p class="last">Дата: <b>{{post.creation_time|date:"d-m-Y H:i:s"}}</b></p>
 </div>
 <h1>{{post.title}}</h1>
 
@@ -11,8 +11,9 @@
 {{post.body}}
 {% endautoescape %}
 {% if user.is_authenticated and user == post.author.user %}
-			<p class="link-read-post"><a href="{% url 'post_edit' pk=post.pk%}">Редактировать пост</a></p>
-			<p class="link-read-post"><a href="{% url 'post_delete' pk=post.pk %}">Удалить пост</a></p>
+			<p class="link-read-post"><a href="{% url 'post_edit' pk=post.pk%}" class="btn">Редактировать пост</a></p>
+			<br>
+			<p class="link-read-post"><a href="{% url 'post_delete' pk=post.pk %}" class="btn">Удалить пост</a></p>
 {% endif %}
   <!-- List of comments -->
 {% if object.message_set.all %}
@@ -22,10 +23,10 @@
 	{% for message in object.message_set.all %}
 	{% if message.is_approved %}
 		<li><div class="article-panel">
-			<p class="first">Автор: {{message.author}}</p>
-			<p class="last">Дата: {{message.creation_time|date:"d-m-Y H:i:s"}}</p>
+			<p class="first">Автор: <b>{{message.author}}</b></p>
+			<p class="last">Дата: <b>{{message.creation_time|date:"d-m-Y H:i:s"}}</b></p>
 		</div>
-            {{message.text}}
+            <p>{{message.text}}</p>
 			<div class="clear"></div>
 			</li>
 	{% endif %}
@@ -39,7 +40,7 @@
 <form action="{% url 'add_message' post_id=post.id %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Добавить</button>
+    <button type="submit" class = 'btn'>Добавить</button>
 </form>
 {% endif %}
 

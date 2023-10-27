@@ -1,18 +1,20 @@
-{% load static %}
-{% load bulletinboard_tags %}
 <!DOCTYPE html>
+{% load bulletinboard_tags %}
+{% load static %}
+
 <html>
 <head>
 	<title>{{title}}</title>
 	<link type="text/css" href="{% static 'bulletinboard/css/styles.css' %}" rel="stylesheet" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<link rel="shortcut icon" href="{% static 'bulletinboard/images/main.ico' %}" type="image/x-icon"/>
+	<link rel="shortcut icon" href="{% static 'bulletinboard/images/logo.ico' %}" type="image/x-icon"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <table class="table-page" border=0 cellpadding="0" cellspacing="0">
 <tr><td valign=top>
 {% block mainmenu %}
+	<nav class = "sticky">
 		<div class="header">
 			<ul id="mainmenu" class="mainmenu">
 			<li class="logo"><a href="{% url 'home' %}"><div class="logo"></div></a></li>
@@ -20,13 +22,14 @@
 						<li><a href="{% url m.url_name %}">{{m.title}}</a></li>
 			{% endfor %}
 				{% if request.user.is_authenticated %}
-				<li class="last"> {{user.username}} | <a href="{% url 'logout' %}">Выйти</a></li>
+				<li class="last"><span style="text-decoration: underline;">{{user.username}}</span> | <a href="{% url 'logout' %}">Выйти</a></li>
 				{% else %}
 				<li class="last"><a href="{% url 'register' %}">Регистрация</a> | <a href="{% url 'login' %}">Войти</a></li>
 				{% endif %}
 			</ul>
 			<div class="clear"></div>
 		</div>
+	</nav>
 {% endblock mainmenu %}
 
 
@@ -62,7 +65,7 @@
 </td></tr>
 <!-- Footer -->
 <tr><td valign=top>
-	<div id="footer" style="margin-top:50px">
+	<div id="footer">
 		<p>&copy; 2023 Частичное или полное копирование информации с данного сайта для распространения на других ресурсах, в том числе и бумажных, строго запрещено.</p>
 	</div>
 </td></tr></table>
